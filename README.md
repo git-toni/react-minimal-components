@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/git-toni/react-minimal-components.svg?branch=master)](https://travis-ci.org/git-toni/react-minimal-components)
+
 # react-minimal-components
 
 > Minimal React components rendering what you'd expect
