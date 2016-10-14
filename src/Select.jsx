@@ -19,6 +19,7 @@ class Select extends React.Component{
     let val = e.target.value
     let opt = finder('value')(val)(this.state.options)
     this.setState({chosenOption: opt});
+    this.props.onChange.apply(null,e.target)
   }
   render(){
     let {options,chosenOption} = this.state

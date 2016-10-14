@@ -11,6 +11,9 @@ const options =[
   {value:39, label:'Aloha'},
 ]
 const defVal = 34
+function onChange(){
+  console.log('I WAS CHANGED')
+}
 
 test('renders a select tag with no options', t => {
   const wrapper = shallow(<Select />);
