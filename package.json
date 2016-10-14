@@ -28,7 +28,10 @@
   },
   "scripts": {
     "test": "ava 'tests/**/*_test.js' --verbose",
-    "watch:test": "npm run test -- --watch"
+    "watch:test": "npm run test -- --watch",
+    "dist:all": "npm run dist:build && npm run dist:build-min",
+    "dist:build": "webpack --config webpack.config.js",
+    "dist:build-min": "webpack --config webpack.config.min.js"
   },
   "ava": {
     "require": ["babel-register"],
