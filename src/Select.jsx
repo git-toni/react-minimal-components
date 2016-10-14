@@ -15,7 +15,6 @@ class Select extends React.Component{
     this._onSelect=this._onSelect.bind(this)
   }
   _onSelect(e){
-    //console.log(e)
     let val = e.target.value
     let opt = finder('value')(val)(this.state.options)
     this.setState({chosenOption: opt});
@@ -25,7 +24,7 @@ class Select extends React.Component{
     let {options,chosenOption} = this.state
     let defaultOptionValue = getValueFromOption(chosenOption)
     return(
-      <select onChange={this._onSelect} value={defaultOptionValue}>
+      <select {...this.props} onChange={this._onSelect} value={defaultOptionValue}>
       {
         options.map(c => <option key={c.value} value={c.value}>{c.label}</option>) 
       }
