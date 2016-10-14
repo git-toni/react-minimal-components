@@ -11,9 +11,6 @@ const options =[
   {value:39, label:'Aloha'},
 ]
 const defVal = 34
-function onChange(){
-  console.log('I WAS CHANGED')
-}
 
 test('renders a select tag with no options', t => {
   const wrapper = shallow(<Select />);
@@ -39,13 +36,30 @@ test('select changes state onChange', t => {
 
   const wrapper = shallow(<Select defaultValue={defVal} options={options}/>);
   const sel = wrapper.find('select')
-  sel.simulate('change',{target:{value:22}})
+  sel.simulate('change',{target:{value:newVal}})
 
   t.deepEqual(wrapper.state('chosenOption'),newChosenObj,'`chosenOption` didnt change properly');
+});
+test('select calls parent"s onChange prop function"', t => {
+  let setMeValue=0
+  let myOnChange=(function(obj){
+    setMeValue=obj.value
+  }).bind(setMeValue)
+
+  const newVal = 22
+  const newChosenObj = finder('value')(newVal)(options)
+
+  const wrapper = shallow(<Select defaultValue={defVal} options={options}onChange={myOnChange}/>);
+  const sel = wrapper.find('select')
+  sel.simulate('change',{target:{value:newVal}})
+
+  t.deepEqual(wrapper.state('chosenOption'),newChosenObj,'`chosenOption` didnt change properly');
+  t.is(setMeValue,newVal,'Parent onChange function was not called')
 });
 
 test.skip('throws error when options is not an array', t => {
   // Need to add static type checking to component
+  // flow vs tcomb vs ${hype_of_the_moment}
   const options ={}
   const wrapper = shallow(<Select options={options}/>);
   t.is(wrapper.find('select').length, 1);

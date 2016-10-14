@@ -6,7 +6,7 @@
 Provided components:
 
 ### `<Select options={} defaultValue={}/>`
-### Arguments
+### Props
 1. `options`: expected to be an array of objects, each *at least* providing `label` and `value` attributes. Eg. `[{label:'One',value:1,myfield:'eRwe34'},...,{label:'Two',value:2,myfield:'x2We33'}]`
 2. `defaultvalue`: it can either be the `value` of one of the `options` *or* a the whole option object. Eg. `{label:'One',value:1,myfield:'eRwe34'}` *or* `1`
 
