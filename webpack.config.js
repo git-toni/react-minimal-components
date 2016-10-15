@@ -1,13 +1,12 @@
-    //publicPath: '/dist',
 module.exports = {
   entry: [
     './src/index.js'
   ],
   output: {
-    path: __dirname+'/dist',
+    path: __dirname+'/lib',
+    filename: 'index.js',
     library:'react-minimal-components',
-    libraryTarget:'umd',
-    filename: 'react-minimal-components.js'
+    libraryTarget:'umd'
   },
   module: {
     loaders: [{
@@ -22,5 +21,19 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: './'
+  },
+  externals: {
+    lodash: {
+      commonjs: 'lodash',
+      commonjs2: 'lodash',
+      amd: '_',
+      root: '_'
+    },
+    react: {
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'React',
+      root: 'React'
+    }
   }
 };
