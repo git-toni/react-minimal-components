@@ -1,7 +1,7 @@
 import test from 'ava';
 import React from 'react';
 import {shallow} from 'enzyme';
-import {Select} from '../src/index'
+import {Select} from '../src/rmc'
 import {isObject,finder} from '../src/utils'
 
 
