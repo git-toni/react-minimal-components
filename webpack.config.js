@@ -4,6 +4,7 @@ module.exports = {
   ],
   output: {
     path: __dirname+'/lib',
+    publicPath:'/lib',
     filename: 'index.js',
     library:'react-minimal-components',
     libraryTarget:'umd'
