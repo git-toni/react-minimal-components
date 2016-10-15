@@ -1,10 +1,9 @@
 module.exports = {
   entry: [
-    './src/index.js'
+    './src/rmc.js'
   ],
   output: {
-    path: __dirname+'/lib',
-    publicPath:'/lib',
+    path: __dirname,
     filename: 'index.js',
     library:'react-minimal-components',
     libraryTarget:'umd'
