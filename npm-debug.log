@@ -1,0 +1,120 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/toni/.nvm/versions/node/v5.10.1/bin/node',
+1 verbose cli   '/home/toni/.nvm/versions/node/v5.10.1/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@3.8.6
+3 info using node@v5.10.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/home/toni/projects/osing/react-minimal-components',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /home/toni/.npm/react-minimal-components/0.1.2/package.tgz not in flight; packing
+9 verbose correctMkdir /home/toni/.npm correctMkdir not in flight; initializing
+10 info lifecycle react-minimal-components@0.1.2~prepublish: react-minimal-components@0.1.2
+11 silly lifecycle react-minimal-components@0.1.2~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/home/toni/.npm/react-minimal-components/0.1.2/package.tgz',
+12 verbose tar pack   '/home/toni/projects/osing/react-minimal-components' ]
+13 verbose tarball /home/toni/.npm/react-minimal-components/0.1.2/package.tgz
+14 verbose folder /home/toni/projects/osing/react-minimal-components
+15 verbose addLocalTarball adding from inside cache /home/toni/.npm/react-minimal-components/0.1.2/package.tgz
+16 verbose correctMkdir /home/toni/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd react-minimal-components@0.1.2
+18 verbose afterAdd /home/toni/.npm/react-minimal-components/0.1.2/package/package.json not in flight; writing
+19 verbose correctMkdir /home/toni/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /home/toni/.npm/react-minimal-components/0.1.2/package/package.json written
+21 silly publish { name: 'react-minimal-components',
+21 silly publish   version: '0.1.2',
+21 silly publish   description: 'Minimalistic components for React, not wrapped in <div>s.',
+21 silly publish   main: 'index.js',
+21 silly publish   dependencies: {},
+21 silly publish   devDependencies:
+21 silly publish    { ava: '^0.16.0',
+21 silly publish      'babel-core': '^6.17.0',
+21 silly publish      'babel-loader': '^6.2.5',
+21 silly publish      'babel-preset-es2015': '^6.16.0',
+21 silly publish      'babel-preset-react': '^6.16.0',
+21 silly publish      enzyme: '^2.4.1',
+21 silly publish      react: '^15.3.2',
+21 silly publish      'react-addons-test-utils': '^15.3.2',
+21 silly publish      'react-dom': '^15.3.2',
+21 silly publish      webpack: '^1.13.2',
+21 silly publish      'webpack-dev-server': '^1.16.2' },
+21 silly publish   scripts:
+21 silly publish    { test: 'ava \'tests/**/*_test.js\' --verbose',
+21 silly publish      'watch:test': 'npm run test -- --watch',
+21 silly publish      'dist:all': 'npm run dist:build && npm run dist:build-min',
+21 silly publish      'dist:build': 'webpack --config webpack.config.js',
+21 silly publish      'dist:build-min': 'webpack --config webpack.config.min.js' },
+21 silly publish   ava: { require: [ 'babel-register' ], babel: 'inherit' },
+21 silly publish   author: { name: 'Toni Urcola' },
+21 silly publish   license: 'ISC',
+21 silly publish   readme: '[![Build Status](https://travis-ci.org/git-toni/react-minimal-components.svg?branch=master)](https://travis-ci.org/git-toni/react-minimal-components)\n\n# react-minimal-components\n\n> Minimal React components rendering what you\'d expect\n\n##Component\nProvided components:\n\n### `<Select options={...} defaultValue={...} onChange={...} .../>`\n#### Props\n1. `options`: expected to be an array of objects, each *at least* providing `label` and `value` attributes. Eg. `[{label:\'One\',value:1,myfield:\'eRwe34\'},...,{label:\'Two\',value:2,myfield:\'x2We33\'}]`\n2. `defaultvalue`: it can either be the `value` of one of the `options` *or* a the whole option object. Eg. `{label:\'One\',value:1,myfield:\'eRwe34\'}` *or* `1`\n3. `onChange`: this is the only React Event/SyntheticEvent currently implemented in the component. Will call the received function passing it the current object selected from the `options` prop.\n\n#### Examples\n```javascript\nconst options =[\n  {value:34,label:\'Hello\',voice:\'John\'}, \n  {value:22, label:\'Hola\',voice:\'Anna\'},\n  {value:39, label:\'Aloha\',voice:\'Bender\'},\n]\nconst defVal = 34\nconst parentChanger= function(ob){\n  console.log(obj.voice+\' says: \', obj.label)\n}\n\nReactDOM.render(<Select options={options} defaultValue={defVal} onChange={parentChanger}/>\n  , document.querySelector(\'div#app-container\')\n);\n//=> Will render\n//<select value=\'34\'>\n//  <option value=\'34\'>Hello</option>\n//  <option value=\'22\'>Hola</option>\n//  <option value=\'39\'>Aloha</option>\n//</select>\n\n// => \'John says: Hello\'\n\n```\n*Note*: React discourages the use of `selected` in the `<option>` tags, hence the `value` attribute at the `<select>` tag instead.\n\n\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: '7b59529dbdbb8540fc962e7408f1e120f3bfcc4e',
+21 silly publish   _id: 'react-minimal-components@0.1.2',
+21 silly publish   _shasum: 'e9a2bd6a0e74ce39cd13de56b0734714601d3c9d',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name react-minimal-components
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'react-minimal-components',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   name: 'react-minimal-components',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/react-minimal-components
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading /home/toni/.npm/react-minimal-components/0.1.2/package.tgz
+30 verbose request uri https://registry.npmjs.org/react-minimal-components
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 4:55:08 PM
+33 verbose request using bearer token for auth
+34 verbose request id 2b7844371e80456f
+35 http request PUT https://registry.npmjs.org/react-minimal-components
+36 http 403 https://registry.npmjs.org/react-minimal-components
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'content-length': '95',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Sat, 15 Oct 2016 14:55:10 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-lhr6338-LHR',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1476543309.732377,VS0,VE1008',
+37 verbose headers   vary: 'Accept-Encoding' }
+38 verbose request invalidating /home/toni/.npm/registry.npmjs.org/react-minimal-components on PUT
+39 error publish Failed PUT 403
+40 verbose stack Error: "You cannot publish over the previously published version 0.1.2." : react-minimal-components
+40 verbose stack     at makeError (/home/toni/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (/home/toni/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+40 verbose stack     at Request._callback (/home/toni/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+40 verbose stack     at Request.self.callback (/home/toni/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/request/request.js:199:22)
+40 verbose stack     at emitTwo (events.js:100:13)
+40 verbose stack     at Request.emit (events.js:185:7)
+40 verbose stack     at Request.<anonymous> (/home/toni/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/request/request.js:1036:10)
+40 verbose stack     at emitOne (events.js:95:20)
+40 verbose stack     at Request.emit (events.js:182:7)
+40 verbose stack     at IncomingMessage.<anonymous> (/home/toni/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/request/request.js:963:12)
+41 verbose statusCode 403
+42 verbose pkgid react-minimal-components
+43 verbose cwd /home/toni/projects/osing/react-minimal-components
+44 error Linux 4.5.0-040500-generic
+45 error argv "/home/toni/.nvm/versions/node/v5.10.1/bin/node" "/home/toni/.nvm/versions/node/v5.10.1/bin/npm" "publish"
+46 error node v5.10.1
+47 error npm  v3.8.6
+48 error code E403
+49 error "You cannot publish over the previously published version 0.1.2." : react-minimal-components
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]
