@@ -1,6 +1,6 @@
 {
   "name": "react-minimal-components",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Minimalistic components for React, not wrapped in <div>s.",
   "main": "index.js",
   "dependencies": {
