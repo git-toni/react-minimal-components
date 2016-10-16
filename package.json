@@ -1,6 +1,6 @@
 {
   "name": "react-minimal-components",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Minimalistic components for React, not wrapped in <div>s.",
   "main": "index.js",
   "dependencies": {
@@ -25,7 +25,10 @@
     "watch:test": "npm run test -- --watch",
     "dist:all": "npm run dist:build && npm run dist:build-min",
     "dist:build": "webpack --config webpack.config.js",
-    "dist:build-min": "webpack --config webpack.config.min.js"
+    "dist:build-min": "webpack --config webpack.config.min.js",
+    "preversion": "npm run test",
+    "version": "npm run dist:build && git add -A .",
+    "postversion": "git push && git push --tags && npm publish"
   },
   "ava": {
     "require": [
