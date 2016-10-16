@@ -1,5 +1,6 @@
 import React from 'react'
 import {isObject,finder} from './utils'
+import omit from 'lodash/omit'
 
 function getValueFromOption(option){
   isObject(option) ? option.value : option
@@ -23,8 +24,9 @@ class Select extends React.Component{
   render(){
     let {options,chosenOption} = this.state
     let defaultOptionValue = getValueFromOption(chosenOption)
+    let actualProps = omit(this.props, ['onChange', 'options', 'defaultValue'])
     return(
-      <select {...this.props} onChange={this._onSelect} value={defaultOptionValue}>
+      <select {...actualProps} onChange={this._onSelect} value={defaultOptionValue}>
       {
         options.map(c => <option key={c.value} value={c.value}>{c.label}</option>) 
       }
