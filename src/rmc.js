@@ -1,10 +1,15 @@
 import Select from './Select'
+import Input from './Input'
 
 const rmc ={
-  Select
+  Select,
+  Input,
 }
 
-export { Select }
+export { 
+  Input, 
+  Select,
+}
 
 export default rmc
 
