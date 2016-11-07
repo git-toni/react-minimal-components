@@ -1,6 +1,6 @@
 {
   "name": "react-minimal-components",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Minimalistic components for React, not wrapped in <div>s.",
   "main": "index.js",
   "dependencies": {
@@ -24,9 +24,10 @@
     "test": "ava 'tests/**/*_test.js' --verbose",
     "example": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --content-base docs/ --config ./docs/webpack.config.js",
     "watch:test": "npm run test -- --watch",
-    "dist:all": "npm run dist:build && npm run dist:build-min",
+    "dist:all": "npm run dist:build && npm run dist:build-min && npm dist:build-example",
     "dist:build": "webpack --config webpack.config.js",
     "dist:build-min": "webpack --config webpack.config.min.js",
+    "dist:build-example": "webpack --config ./docs/webpack.config.js --content-base docs/",
     "preversion": "npm run test",
     "version": "npm run dist:build && git add -A .",
     "postversion": "git push && git push --tags && npm publish"
@@ -37,6 +38,10 @@
     ],
     "babel": "inherit"
   },
-  "author": "Toni Urcola",
+  "author": "Toni Urcola <unmail.toni@gmail.com> (https://github.com/git-toni)",
   "license": "ISC"
+  "pre-commit": [
+    "test",
+    "dist:all"
+  ]
 }
