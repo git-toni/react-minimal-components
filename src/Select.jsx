@@ -3,7 +3,7 @@ import {isObject,finder} from './utils'
 import omit from 'lodash/omit'
 
 function getValueFromOption(option){
-  isObject(option) ? option.value : option
+  return isObject(option) ? option.value : option
 }
 
 class Select extends React.Component{

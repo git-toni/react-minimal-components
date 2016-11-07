@@ -10,7 +10,7 @@ const options =[
   {value:22, label:'Hola'},
   {value:39, label:'Aloha'},
 ]
-const defVal = 34
+const defVal = 39
 
 test('renders a select tag with no options', t => {
   const wrapper = shallow(<Select />);
@@ -24,9 +24,12 @@ test('renders a select tag with passed options', t => {
   t.is(wrapper.find('option[value=34]').length, 1);
 });
 test('internal state is correctly set', t => {
-  const wrapper = shallow(<Select defaultValue={defVal} options={options}/>);
+  const myId='myyyyy'
+  const wrapper = shallow(<Select id={myId} defaultValue={defVal} options={options}/>);
   const sta = wrapper.state()
 
+  t.is(wrapper.find('select').props().value,defVal)
+  t.is(wrapper.find('select').props().id,myId)
   t.deepEqual(sta.options,options,'`options` prop not well set');
   t.deepEqual(sta.chosenOption,defVal,'`chosenOption` prop not well set');
 });

@@ -22,6 +22,7 @@
   },
   "scripts": {
     "test": "ava 'tests/**/*_test.js' --verbose",
+    "example": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --content-base docs/ --config ./docs/webpack.config.js",
     "watch:test": "npm run test -- --watch",
     "dist:all": "npm run dist:build && npm run dist:build-min",
     "dist:build": "webpack --config webpack.config.js",
