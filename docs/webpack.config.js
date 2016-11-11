@@ -9,8 +9,10 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist',
-    filename: 'rmc-example.js'
+    filename: 'rmc-example.js',
+    libraryTarget:'umd'
   },
+  devtool: 'source-map',
   module: {
     loaders: [{
       exclude: /node_modules/,
@@ -32,12 +34,33 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: './'
+    contentBase: './',
+    port: 8077
   },
   node: {
     console: true,
     fs: 'empty',
     net: 'empty',
     tls: 'empty'
+  },
+  externals: {
+    lodash: {
+      commonjs: 'lodash',
+      commonjs2: 'lodash',
+      amd: '_',
+      root: '_'
+    },
+    react: {
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'React',
+      root: 'React'
+    },
+    'react-dom': {
+      root: 'ReactDOM',
+      commonjs2: 'react-dom',
+      commonjs: 'react-dom',
+      amd: 'react-dom'
+    },
   }
 };

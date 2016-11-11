@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Input,Select} from '../src/rmc'
+//import {Input,Select} from '../src/rmc'
+import {Input,Select} from '../dist/rmc'
 
 
 const alertMsg = (e)=> console.log('changes ', e.value)
