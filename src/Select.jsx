@@ -1,7 +1,7 @@
 import React from 'react'
 import {isObject,finder} from './utils'
 //import omit from 'lodash/omit'
-import {omit} from 'lodash'
+//import {omit} from 'lodash'
 
 function getValueFromOption(option){
   return isObject(option) ? option.value : option
@@ -27,7 +27,8 @@ class Select extends React.Component{
   render(){
     let {options,chosenOption, labelField, valueField} = this.state
     let defaultOptionValue = getValueFromOption(chosenOption)
-    let actualProps = omit(this.props, ['onChange', 'options', 'defaultValue','labelField','valueField'])
+    //let actualProps = omit(this.props, ['onChange', 'options', 'defaultValue','labelField','valueField'])
+    let {onChange:oc, options:op, defaultValue:dv, labelField:lf, valueField:vf, ...actualProps} = this.props
     return(
       <select {...actualProps} onChange={this._onSelect} value={defaultOptionValue}>
       {

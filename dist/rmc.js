@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("react"), require("lodash"));
+		module.exports = factory(require("react"));
 	else if(typeof define === 'function' && define.amd)
-		define(["react", "_"], factory);
+		define(["react"], factory);
 	else if(typeof exports === 'object')
-		exports["react-minimal-components"] = factory(require("react"), require("lodash"));
+		exports["react-minimal-components"] = factory(require("react"));
 	else
-		root["react-minimal-components"] = factory(root["React"], root["_"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_3__, __WEBPACK_EXTERNAL_MODULE_5__) {
+		root["react-minimal-components"] = factory(root["React"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_3__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -72,7 +72,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _Select2 = _interopRequireDefault(_Select);
 	
-	var _Input = __webpack_require__(6);
+	var _Input = __webpack_require__(5);
 	
 	var _Input2 = _interopRequireDefault(_Input);
 	
@@ -107,17 +107,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _utils = __webpack_require__(4);
 	
-	var _lodash = __webpack_require__(5);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	//import omit from 'lodash/omit'
 	
+	//import omit from 'lodash/omit'
+	//import {omit} from 'lodash'
 	
 	function getValueFromOption(option) {
 	  return (0, _utils.isObject)(option) ? option.value : option;
@@ -152,14 +153,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _state = this.state;
-	      var options = _state.options;
-	      var chosenOption = _state.chosenOption;
-	      var labelField = _state.labelField;
-	      var valueField = _state.valueField;
+	      var _state = this.state,
+	          options = _state.options,
+	          chosenOption = _state.chosenOption,
+	          labelField = _state.labelField,
+	          valueField = _state.valueField;
 	
 	      var defaultOptionValue = getValueFromOption(chosenOption);
-	      var actualProps = (0, _lodash.omit)(this.props, ['onChange', 'options', 'defaultValue', 'labelField', 'valueField']);
+	      //let actualProps = omit(this.props, ['onChange', 'options', 'defaultValue','labelField','valueField'])
+	
+	      var _props = this.props,
+	          oc = _props.onChange,
+	          op = _props.options,
+	          dv = _props.defaultValue,
+	          lf = _props.labelField,
+	          vf = _props.valueField,
+	          actualProps = _objectWithoutProperties(_props, ['onChange', 'options', 'defaultValue', 'labelField', 'valueField']);
+	
 	      return _react2.default.createElement(
 	        'select',
 	        _extends({}, actualProps, { onChange: this._onSelect, value: defaultOptionValue }),
@@ -205,6 +215,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.isObject = isObject;
 	exports.finder = finder;
+	exports.indexOf = indexOf;
 	function isObject(who) {
 	  return who === Object(who);
 	}
@@ -222,15 +233,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 	  };
 	}
+	
+	function indexOf(arr, el) {
+	  for (var i = 0; i < arr.length; i++) {
+	    if (arr[i] == el) return i;
+	  }
+	  return -1;
+	}
 
 /***/ },
 /* 5 */
-/***/ function(module, exports) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_5__;
-
-/***/ },
-/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -249,22 +261,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _utils = __webpack_require__(4);
 	
-	var _lodash = __webpack_require__(5);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	//import omit from 'lodash/omit'
-	//import indexOf from 'lodash/indexOf'
 	
+	//mport omit from 'lodash/omit'
+	//import indexOf from 'lodash/indexOf'
+	//import {omit, indexOf} from 'lodash'
 	
 	function verifyType(typein) {
 	  var ts = new Array('radio', 'checkbox');
-	  if ((0, _lodash.indexOf)(ts, typein) > -1) {
+	  //if(Array.indexOf(ts, typein) > -1){
+	  if ((0, _utils.indexOf)(ts, typein) > -1) {
 	    throw 'Please use <CheckboxInput /> instead for this type of input.';
 	  }
 	}
@@ -298,7 +312,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var value = this.state.value;
 	
 	      var renderValue = value || '';
-	      var actualProps = (0, _lodash.omit)(this.props, ['onChange', 'value']);
+	      //let actualProps = omit(this.props, ['onChange', 'value'])
+	
+	      var _props = this.props,
+	          _oc = _props.onChange,
+	          _va = _props.value,
+	          actualProps = _objectWithoutProperties(_props, ['onChange', 'value']);
+	
 	      return _react2.default.createElement('input', _extends({}, actualProps, { onChange: this._onChange, value: renderValue }));
 	    }
 	  }]);

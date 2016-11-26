@@ -1,12 +1,13 @@
 import React from 'react'
-import {isObject,finder} from './utils'
-//import omit from 'lodash/omit'
+import {isObject,finder, indexOf} from './utils'
+//mport omit from 'lodash/omit'
 //import indexOf from 'lodash/indexOf'
-import {omit, indexOf} from 'lodash'
+//import {omit, indexOf} from 'lodash'
 
 function verifyType(typein){
   let ts = new Array('radio','checkbox')
-  if(indexOf(ts, typein) > -1){
+  //if(Array.indexOf(ts, typein) > -1){
+  if(indexOf(ts,typein) > -1){
     throw  'Please use <CheckboxInput /> instead for this type of input.'
   }
 }
@@ -27,7 +28,8 @@ class Input extends React.Component{
   render(){
     let {value} = this.state
     let renderValue = value || ''
-    let actualProps = omit(this.props, ['onChange', 'value'])
+    //let actualProps = omit(this.props, ['onChange', 'value'])
+    let {onChange:_oc, value:_va, ...actualProps} = this.props
     return(
       <input {...actualProps} onChange={this._onChange} value={renderValue} />
       );

@@ -32,12 +32,12 @@ module.exports = {
       amd: 'react',
       root: 'React'
     },
-    lodash: {
-      commonjs: 'lodash',
-      commonjs2: 'lodash',
-      amd: '_',
-      root: '_'
-    },
+    //lodash: {
+    //  commonjs: 'lodash',
+    //  commonjs2: 'lodash',
+    //  amd: '_',
+    //  root: '_'
+    //},
     'react-dom': {
       root: 'ReactDOM',
       commonjs2: 'react-dom',

@@ -1,9 +1,11 @@
 {
   "name": "react-minimal-components",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Minimalistic components for React, not wrapped in <div>s.",
   "main": "dist/rmc.min.js",
   "dependencies": {
+    "babel-preset-es2017": "^6.16.0",
+    "babel-preset-stage-2": "^6.18.0"
   },
   "devDependencies": {
     "ava": "^0.16.0",
@@ -38,7 +40,7 @@
     "babel": "inherit"
   },
   "author": "Toni Urcola <unmail.toni@gmail.com> (https://github.com/git-toni)",
-  "homepage":"https://github.com/git-toni/react-minimal-components",
+  "homepage": "https://github.com/git-toni/react-minimal-components",
   "license": "ISC",
   "pre-commit": [
     "test",
