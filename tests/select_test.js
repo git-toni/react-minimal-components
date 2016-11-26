@@ -68,3 +68,16 @@ test.skip('throws error when options is not an array', t => {
   t.is(wrapper.find('select').length, 1);
   t.is(wrapper.find('option').length, 0);
 });
+test('custom label and value fields', t => {
+  const modOptions =[
+    {myVal:34,myLabel:'Hello'}, 
+    {myVal:22, myLabel:'Hola'},
+    {myVal:39, myLabel:'Aloha'},
+  ]
+  const wrapper = shallow(<Select defaultValue={defVal} options={options} valueField='myVal' labelField='myLabel'/>);
+  const sta = wrapper.state()
+
+  t.is(wrapper.find('select').props().value,defVal)
+  t.deepEqual(sta.options,options,'`options` prop not well set');
+  t.deepEqual(sta.chosenOption,defVal,'`chosenOption` prop not well set');
+});

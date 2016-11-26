@@ -11,7 +11,9 @@ class Select extends React.Component{
     super(props)
     this.state={
       options: props.options,
-      chosenOption: props.defaultValue
+      chosenOption: props.defaultValue,
+      labelField: props.labelField || 'label',
+      valueField: props.valueField || 'value'
     }
     this._onSelect=this._onSelect.bind(this)
   }
@@ -22,13 +24,13 @@ class Select extends React.Component{
     if(this.props.onChange) this.props.onChange.call(null,opt)
   }
   render(){
-    let {options,chosenOption} = this.state
+    let {options,chosenOption, labelField, valueField} = this.state
     let defaultOptionValue = getValueFromOption(chosenOption)
-    let actualProps = omit(this.props, ['onChange', 'options', 'defaultValue'])
+    let actualProps = omit(this.props, ['onChange', 'options', 'defaultValue','labelField','valueField'])
     return(
       <select {...actualProps} onChange={this._onSelect} value={defaultOptionValue}>
       {
-        options.map(c => <option key={c.value} value={c.value}>{c.label}</option>) 
+        options.map(c => <option key={c[valueField]} value={c[valueField]}>{c[labelField]}</option>) 
       }
       </select>
       );

@@ -38,6 +38,7 @@
     "babel": "inherit"
   },
   "author": "Toni Urcola <unmail.toni@gmail.com> (https://github.com/git-toni)",
+  "homepage":"https://github.com/git-toni/react-minimal-components",
   "license": "ISC",
   "pre-commit": [
     "test",
