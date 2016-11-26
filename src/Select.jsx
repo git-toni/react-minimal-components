@@ -1,6 +1,7 @@
 import React from 'react'
 import {isObject,finder} from './utils'
-import omit from 'lodash/omit'
+//import omit from 'lodash/omit'
+import {omit} from 'lodash'
 
 function getValueFromOption(option){
   return isObject(option) ? option.value : option

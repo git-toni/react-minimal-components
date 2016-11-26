@@ -1,7 +1,8 @@
 import React from 'react'
 import {isObject,finder} from './utils'
-import omit from 'lodash/omit'
-import indexOf from 'lodash/indexOf'
+//import omit from 'lodash/omit'
+//import indexOf from 'lodash/indexOf'
+import {omit, indexOf} from 'lodash'
 
 function verifyType(typein){
   let ts = new Array('radio','checkbox')

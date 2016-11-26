@@ -1733,7 +1733,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 						_this.state = {
 							options: props.options,
-							chosenOption: props.defaultValue
+							chosenOption: props.defaultValue,
+							labelField: props.labelField || 'label',
+							valueField: props.valueField || 'value'
 						};
 						_this._onSelect = _this._onSelect.bind(_this);
 						return _this;
@@ -1753,11 +1755,13 @@ return /******/ (function(modules) { // webpackBootstrap
 							var _state = this.state;
 							var options = _state.options;
 							var chosenOption = _state.chosenOption;
+							var labelField = _state.labelField;
+							var valueField = _state.valueField;
 	
 							var defaultOptionValue = getValueFromOption(chosenOption);
-							var actualProps = (0, _omit2.default)(this.props, ['onChange', 'options', 'defaultValue']);
+							var actualProps = (0, _omit2.default)(this.props, ['onChange', 'options', 'defaultValue', 'labelField', 'valueField']);
 							return _react2.default.createElement('select', _extends({}, actualProps, { onChange: this._onSelect, value: defaultOptionValue }), options.map(function (c) {
-								return _react2.default.createElement('option', { key: c.value, value: c.value }, c.label);
+								return _react2.default.createElement('option', { key: c[valueField], value: c[valueField] }, c[labelField]);
 							}));
 						}
 					}]);
