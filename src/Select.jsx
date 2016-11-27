@@ -19,10 +19,12 @@ class Select extends React.Component{
     this._onSelect=this._onSelect.bind(this)
   }
   _onSelect(e){
+    let { labelField, valueField} = this.state
     let val = e.target.value
-    let opt = finder('value')(val)(this.state.options)
+    //let opt = finder('value')(val)(this.state.options)
+    let opt = finder(valueField)(val)(this.state.options)
     this.setState({chosenOption: opt});
-    if(this.props.onChange) this.props.onChange.call(null,opt)
+    if(this.props.onChange) this.props.onChange.call(null,e)
   }
   render(){
     let {options,chosenOption, labelField, valueField} = this.state

@@ -45,8 +45,8 @@ test('select changes state onChange', t => {
 });
 test('select calls parent"s onChange prop function"', t => {
   let setMeValue=0
-  let myOnChange=(function(obj){
-    setMeValue=obj.value
+  let myOnChange=(function(e){
+    setMeValue=e.target.value
   }).bind(setMeValue)
 
   const newVal = 22
@@ -80,4 +80,25 @@ test('custom label and value fields', t => {
   t.is(wrapper.find('select').props().value,defVal)
   t.deepEqual(sta.options,options,'`options` prop not well set');
   t.deepEqual(sta.chosenOption,defVal,'`chosenOption` prop not well set');
+});
+test('custom label/value calling onChange', t => {
+  let setMeValue=0
+  let myOnChange=(function(e){
+    setMeValue=e.target.value
+  }).bind(setMeValue)
+  const modOptions =[
+    {myVal:34,myLabel:'Hello'}, 
+    {myVal:22, myLabel:'Hola'},
+    {myVal:39, myLabel:'Aloha'},
+  ]
+  const newVal = 22
+  const newChosenObj = finder('myVal')(newVal)(modOptions)
+  const wrapper = shallow(<Select defaultValue={defVal} options={modOptions} valueField='myVal' labelField='myLabel' onChange={myOnChange}/>);
+  const sta = wrapper.state()
+
+  const sel = wrapper.find('select')
+  sel.simulate('change',{target:{value:newVal}})
+
+  t.deepEqual(wrapper.state('chosenOption'),newChosenObj,'`chosenOption` didnt change properly');
+  t.is(setMeValue,newVal,'Parent onChange function was not called')
 });
